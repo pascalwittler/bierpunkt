@@ -1,1 +1,6 @@
 @import url('variables.css');
+
+@import url('elements/general-elements.css');
+
+@import url('layout/typography.css');
+@import url('layout/fontfaces.css');
