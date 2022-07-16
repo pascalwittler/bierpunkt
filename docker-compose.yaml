@@ -1,0 +1,13 @@
+services:
+  bierpunkt-frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/usr/local/apache2/htdocs
+    ports:
+      - 7258:80
+  bierpunkt-api:
+    build: ./api
+    volumes:
+      - ./api:/usr/src/app
+    ports:
+      - 7259:2342
