@@ -8,7 +8,7 @@ The recommended way to run your own instance of BierPunkt is to start it inside 
 
 You may wish to change the IP address and/or the port at the end of the python script `api/app.py` to avoid complications when trying to connect to the API.
 
-## Usage
+## API Usage
 
 All responses will have the form
 
@@ -40,7 +40,7 @@ The following response definitions will only detail the expected value of the `d
         "email": "pw@derpunkt.de",
         "imageFilepath": "/res/img/users/pw.jpg"
     },
-    …
+    ...
 ]
 ```
 
