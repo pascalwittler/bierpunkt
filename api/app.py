@@ -69,7 +69,7 @@ class User(Resource):
             return {'message': 'User not found', 'data': {}}, 404
 
         del shelf[identifier]
-        return {'message': 'User deleted', 'data': {}}, 200
+        return {'message': 'User deleted', 'data': {}}, 204
 
 api.add_resource(UserList, '/users')
 api.add_resource(User, '/user/<string:identifier>')
