@@ -1,5 +1,15 @@
 # BierPunkt 2022
 
+## About this project
+
+### Features
+
+* User and product/price management (in progress)
+* multiple pots of money for independent payment (planned)
+* Simple web frontend without any framework or library
+* Python (Flask) REST API and backend
+* No database server required
+
 ## Get started
 
 ### Installation
@@ -84,3 +94,8 @@ If a user with the given identifier already exists, it will be overwritten.
 * `204 No Content` on success
 * `404 Not Found` if the user does not exist
 
+## Miscellaneous
+
+#### Port numbers
+
+The port number `7258` for the web frontend was chosen after watching the music remix ["7258 Schilling"](https://www.youtube.com/watch?v=4VTTz6CrFM4) on YouTube. Schilling was the currency in Austria before 2002.
