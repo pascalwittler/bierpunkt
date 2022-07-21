@@ -45,7 +45,6 @@ class UserList(Resource):
         parser.add_argument('lastName', required = True)
         parser.add_argument('email', required = True)
 
-        # Parse the arguments into an object
         args = parser.parse_args()
 
         shelf = get_db('data/users.db')
@@ -71,8 +70,54 @@ class User(Resource):
         del shelf[identifier]
         return {'message': 'User deleted', 'data': {}}, 204
 
+class ProductList(Resource):
+    def get(self):
+        shelf = get_db('data/products.db')
+        keys = list(shelf.keys())
+
+        products = []
+
+        for key in keys:
+            products.append(shelf[key])
+
+        return {'message': 'Success', 'data': products}, 200
+
+    def post(self):
+        parser = reqparse.RequestParser()
+
+        parser.add_argument('identifier', required = True)
+        parser.add_argument('name', required = True)
+        parser.add_argument('price', type = int, required = True)
+
+        args = parser.parse_args()
+
+        shelf = get_db('data/products.db')
+        shelf[args['identifier']] = args
+
+        return {'message': 'Product added', 'data': args}, 201
+
+class Product(Resource):
+    def get(self, identifier):
+        shelf = get_db('data/products.db')
+
+        if not (identifier in shelf):
+            return {'message': 'Product not found', 'data': {}}, 404
+
+        return {'message': 'Product found', 'data': shelf[identifier]}, 200
+
+    def delete(self, identifier):
+        shelf = get_db('data/products.db')
+
+        if not (identifier in shelf):
+            return {'message': 'Product not found', 'data': {}}, 404
+
+        del shelf[identifier]
+        return {'message': 'Product deleted', 'data': {}}, 204
+
 api.add_resource(UserList, '/users')
 api.add_resource(User, '/user/<string:identifier>')
+api.add_resource(ProductList, '/products')
+api.add_resource(Product, '/product/<string:identifier>')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=2342, debug=True)
