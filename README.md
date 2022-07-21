@@ -2,6 +2,12 @@
 
 ## About this project
 
+### History & Context
+
+In my company, payment for coffee, Coke and beer for employees is organized with a tally sheet on paper and two piggy banks. Whenever a person's tally line is full, a trainee manually tallies the list and everyone pays the exact amount of money in cash.
+
+Since it is 2022, I would like to establish a replacement for the current procedure with this project.
+
 ### Features
 
 * User and product/price management (in progress)
